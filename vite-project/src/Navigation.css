@@ -1,0 +1,33 @@
+.numbered-nav {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
+  .numbered-nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+  }
+  
+  .numbered-nav ul li a {
+    color: #4CAF50; /* Bright green */
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+  
+  .numbered-nav ul li a:hover {
+    color: #7CFC00; /* Neon green on hover */
+  }
+  
+  /* Active/current page styles */
+  .numbered-nav ul li a.active {
+    color: #7CFC00; /* Neon green for active link */
+    border-bottom: 2px solid #7CFC00;
+  }

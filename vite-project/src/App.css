@@ -1,0 +1,352 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #3a3a3a, #2e2e2e, #1f1f1f); /* Smooth dark grey gradient */
+  color: #F0F0F0;
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  text-align: center;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: none; /* Remove the radial gradient */
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Glowing Animation */
+@keyframes glowing {
+  0% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+  100% { opacity: 0.4; transform: scale(1); }
+}
+
+
+
+/* Navigation Bar */
+.navigation-buttons {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 15px 0;
+}
+
+/* Navigation Buttons */
+.nav-button {
+  background: none;
+  border: none;
+  color: #F0F0F0;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 0.9rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Green Underline Effect */
+.nav-button::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  width: 0%;
+  height: 3px;
+  background-color: #4CAF50;
+  transition: width 0.3s ease, left 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-button:hover {
+  color: #4CAF50;
+}
+
+/* Extend underline on hover */
+.nav-button:hover::after {
+  width: 100%;
+  left: 0;
+  transform: translateX(0);
+}
+
+/* Section Styling */
+.section {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Section Titles */
+.section-title {
+  color: white;
+  font-size: 3rem;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* Underline Effect for Titles */
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 50%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #4CAF50, transparent);
+  transform: translateX(-50%);
+  animation: underlineGlow 3s linear infinite;
+}
+
+@keyframes underlineGlow {
+  0% { background-position: 0% 100%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 100%; }
+}
+
+/* Gallery */
+.gallery-section {
+  padding-top: 100px;
+  background-color: rgba(0,0,0,0.9);
+  text-align: center;
+}
+
+.gallery-main {
+  width: 80%;
+  max-width: 600px;
+  height: 350px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.gallery-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.gallery-arrow:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.gallery-arrow.left {
+  left: 10px;
+}
+
+.gallery-arrow.right {
+  right: 10px;
+}
+
+/* Guestbook */
+.guestbook {
+  max-width: 700px; /* Increased width */
+  margin: 30px auto;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.guestbook h2 {
+  margin-bottom: 15px;
+}
+
+.guestbook form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.guestbook input,
+.guestbook textarea {
+  width: 100%;
+  max-width: 600px; /* Increased input width */
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.guestbook textarea {
+  resize: none;
+  height: 90px; /* Same height */
+}
+
+.guestbook button {
+  width: 100%;
+  max-width: 600px; /* Matching button width */
+  padding: 12px;
+  border: none;
+  background: #4CAF50;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+  font-size: 1rem;
+}
+
+.guestbook button:hover {
+  background: #45a049;
+}
+
+
+
+/* Comments */
+.comments {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.comment {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+/* Thumbnails */
+.gallery-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform 0.3s, opacity 0.3s;
+  overflow: hidden;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbnail:hover {
+  transform: scale(1.1);
+}
+
+.thumbnail.active {
+  opacity: 0.6;
+  border: 2px solid #4CAF50;
+}
+
+.home-gif-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full screen width */
+  height: 100vh; /* Covers the entire viewport */
+  background-color: #000000 !important; /* Ensures it stays pure black */
+  z-index: -1; /* Pushes it behind everything */
+}
+
+/* Centered GIF Styling (Without Green Glow) */
+.home-gif-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures the section covers full height */
+}
+
+.home-gif {
+  width: 70%; /* Bigger GIF */
+  max-width: 600px; /* Limit max size */
+  height: auto;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.6); /* Black drop shadow */
+  border-radius: 10px; /* Slightly rounded edges */
+  transition: transform 0.3s ease-in-out; /* Optional hover effect */
+}
+
+.home-gif:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Grey Divider Between Sections */
+.section-divider {
+  width: 100%;
+  height: 50px; /* Adjust thickness */
+  background: linear-gradient(to bottom, #3a3a3a, #2e2e2e); /* Gives a recessed effect */
+  box-shadow: inset 0px 5px 10px rgba(0, 0, 0, 0.5); /* Creates the illusion of depth */
+  margin: 0;
+}
+
+/* About Me Section */
+.about-content {
+  max-width: 500px; /* Reduced width for better spacing */
+  text-align: left;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 30px rgba(50, 50, 50, 0.4); /* Stronger drop shadow */
+  font-family: "Poppins", Arial, sans-serif; /* Clean, modern font */
+  line-height: 1.6;
+  margin-bottom: 40px; /* Adds spacing so it doesn’t touch the divider */
+}
+
+.about-content h3 {
+  margin-top: 15px;
+  color: #4CAF50;
+}
+
+
+.about-content p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+.about-content ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+

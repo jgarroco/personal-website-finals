@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'AnandaBlack';
+    src: url('C:\\Users\\ddaye\\Downloads\\webprog_webs\\vite-project\\src\\fonts\\AnandaBlackPersonalUseRegular-rg9Rx.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @keyframes greenUnderline {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
